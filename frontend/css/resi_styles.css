@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     padding: 0 15px;
 }
@@ -20,66 +20,94 @@ body {
     max-width: 1000px;
     text-align: center;
     animation: fadeIn 0.5s ease-in-out;
+    align-items:self-end;
 }
 
-/* Centering for Login & Dashboard */
-.centered {
+/* Search Section */
+.search-container {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search-container h3 {
+    width: 100%;
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Filter Section */
+.filter-container {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+/* Wrapper for Search & Filter */
+.search-filter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
     align-items: center;
 }
 
-/* Button Group - Aligned Horizontally */
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+/* Ensure both sections take equal space */
+.search-container, .filter-container {
+    flex: 1;
+}
+
+
+.filter-container h3 {
+    width: 100%;
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Input Fields */
+input, select {
+    width: 180px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    text-align: center;
+}
+
+input:focus, select:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
 }
 
 /* Buttons */
 button {
-    padding: 12px 20px;
+    padding: 10px 16px;
     background: #4facfe;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     transition: 0.3s ease;
     font-weight: 500;
-    min-width: 150px;
 }
 
 button:hover {
     background: #00c6ff;
     transform: scale(1.05);
-}
-
-/* Headings */
-
-.admin-dashboard-heading {
-    margin-top: 50px; /* Adjust as needed */
-    color: #333;
-}
-
-
-/* Input Fields */
-input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-    outline: none;
-    box-sizing: border-box;
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: #4facfe;
-    box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
 }
 
 /* Table Container Styling */
@@ -88,8 +116,7 @@ input:focus, select:focus, textarea:focus {
     overflow-x: auto;
     overflow-y: auto;
     margin-top: 20px;
-    max-width: 100%;
-    max-height: 80vh;
+    max-height: 60vh;
 }
 
 /* Table Styling */
@@ -100,25 +127,21 @@ table {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    table-layout: auto;
-    min-width: 100%;
+    min-width: 600px;
 }
 
 table th, table td {
     border: 1px solid #ccc;
-    padding: 14px;
+    padding: 12px;
     text-align: center;
-    font-size: 16px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 14px;
 }
 
 /* Table Header */
 table th {
     background: #4facfe;
     color: white;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 /* Alternate Row Colors */
@@ -132,41 +155,25 @@ table tr:hover {
     transition: 0.3s ease;
 }
 
-/* Scrollbar Styling */
-.table-container::-webkit-scrollbar {
-    height: 8px;
-}
-
-.table-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.table-container::-webkit-scrollbar-thumb {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.table-container::-webkit-scrollbar-thumb:hover {
-    background: #00c6ff;
+/* Highlighted Row */
+.highlight {
+    background-color: rgb(178, 250, 250) !important;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        width: 100%;
         max-width: 95%;
         padding: 20px;
     }
 
-    .button-group {
+    .search-container, .filter-container {
         flex-direction: column;
         align-items: center;
     }
 
-    button {
+    input, select, button {
         width: 100%;
-        min-width: auto;
     }
 }
 
